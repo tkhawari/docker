@@ -26,15 +26,15 @@ phases:
     - echo Build started on `date` 
     - echo Building the Docker image... 
     # update the following line with the name of your own ECR repository
-    - sudo docker build -t mydockerrepo . 
+    - docker build -t mydockerrepo . 
     # update the following line with the URI of your own ECR repository (view the Push Commands in the console)
-    - sudo docker tag dockerrepo:latest 971858016717.dkr.ecr.us-west-2.amazonaws.com/dockerrepo:latest
+    - docker tag dockerrepo:latest 971858016717.dkr.ecr.us-west-2.amazonaws.com/dockerrepo:latest
   post_build: 
     commands: 
     - echo Build completed on `date` 
     - echo pushing to repo
     # update the following line with the URI of your own ECR repository
-    - sudo docker push 971858016717.dkr.ecr.us-west-2.amazonaws.com/dockerrepo:latest 
+    - docker push 971858016717.dkr.ecr.us-west-2.amazonaws.com/dockerrepo:latest
 #artifacts: 
     # - location 
     # - location 
