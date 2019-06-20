@@ -20,7 +20,7 @@ phases:
     - echo Logging in to Amazon ECR.... 
     - aws --version
     # update the following line with your own region
-    - $(aws ecr get-login --no-include-email --region eu-central-1) 
+    - $(aws ecr get-login --no-include-email --region us-west-2) 
   build: 
     commands: 
     - echo Build started on `date` 
@@ -28,13 +28,13 @@ phases:
     # update the following line with the name of your own ECR repository
     - docker build -t mydockerrepo . 
     # update the following line with the URI of your own ECR repository (view the Push Commands in the console)
-    - docker tag mydockerrepo:latest 757250003982.dkr.ecr.eu-central-1.amazonaws.com/mydockerrepo:latest 
+    - docker tag dockerrepo:latest 971858016717.dkr.ecr.us-west-2.amazonaws.com/dockerrepo:latest
   post_build: 
     commands: 
     - echo Build completed on `date` 
     - echo pushing to repo
     # update the following line with the URI of your own ECR repository
-    - docker push 757250003982.dkr.ecr.eu-central-1.amazonaws.com/mydockerrepo:latest 
+    - docker push 971858016717.dkr.ecr.us-west-2.amazonaws.com/dockerrepo:latest 
 #artifacts: 
     # - location 
     # - location 
